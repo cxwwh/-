@@ -1,0 +1,29 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: hmdp
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3308/hmdp?useSSL=false&serverTimezone=UTC
+    username: root
+    password: CXWWH999
+  redis:
+    host: 192.168.200.131
+    port: 6379
+    password: CXWWH999
+    lettuce: # lettuce 连接池
+      pool:
+        max-active: 10
+        max-idle: 10
+        min-idle: 1
+        time-between-eviction-runs: 10s
+  jackson:
+    default-property-inclusion: non_null # JSON处理时忽略 null 值
+
+mybatis-plus:
+  type-aliases-package: com.hmdp.entity # 别名扫描包
+
+logging:
+  level:
+    com.hmdp: debug
